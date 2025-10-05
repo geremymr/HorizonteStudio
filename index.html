@@ -2,22 +2,20 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Horizonte Studio ©</title>
 
   <!-- Fuentes modernas -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-  <!-- Favicon modo claro -->
+
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="img/dark.png" media="(prefers-color-scheme: light)">
-  <!-- Favicon modo oscuro -->
   <link rel="icon" type="image/png" href="img/white.png" media="(prefers-color-scheme: dark)">
-  <!-- Favicon genérico -->
   <link rel="icon" type="image/png" href="img/white.png">
-  <!-- iOS Safari -->
   <link rel="apple-touch-icon" href="img/dark.png">
 
   <style>
-    :root{
+    :root {
       --primary:#169ba0;
       --secondary:#052d2e;
       --accent:#052d2e;
@@ -29,39 +27,44 @@
       --math-bg:#e0f7f9;
     }
 
-    *{box-sizing:border-box; margin:0; padding:0;}
-    body {
-      font-family: 'Open Sans', sans-serif;
+    /* === 🔧 Corrección general === */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
       background: var(--bg);
+      font-family: 'Open Sans', sans-serif;
       color: var(--text);
-      line-height:1.6;
-      padding-bottom:50px;
+      line-height: 1.6;
+      padding-bottom: 50px;
     }
 
     .banner {
       background: var(--banner);
-      display:flex;
-      align-items:center;
-      padding:5px 30px;
-      gap:20px;
-      color:white;
+      display: flex;
+      align-items: center;
+      padding: 5px 30px;
+      gap: 20px;
+      color: white;
     }
-    .banner img { height:70px; }
-    .logo-container { display:flex; flex-direction:column; justify-content:center; }
-    .logo { font-size:36px; font-weight:700; font-family:'Poppins', sans-serif; }
-    .subtitle { font-size:18px; font-weight:400; }
+    .banner img { height: 70px; }
+    .logo-container { display: flex; flex-direction: column; justify-content: center; }
+    .logo { font-size: 36px; font-weight: 700; font-family: 'Poppins', sans-serif; }
+    .subtitle { font-size: 18px; font-weight: 400; }
 
     .topnav {
       background: var(--primary);
-      color:white;
-      padding:12px 40px;
-      display:flex;
-      gap:24px;
-      font-family:'Poppins', sans-serif;
+      color: white;
+      padding: 12px 40px;
+      display: flex;
+      gap: 24px;
+      font-family: 'Poppins', sans-serif;
+      flex-wrap: wrap;
     }
     .topnav a {
-      color:#fff;
-      text-decoration:none;
+      color: #fff;
+      text-decoration: none;
       transition: color 0.3s;
     }
     .topnav a.active,
@@ -69,113 +72,112 @@
 
     .titlebar {
       background: var(--accent);
-      padding:12px;
-      border-radius:6px;
-      text-align:center;
-      margin:20px 40px 0;
-      color:white;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      margin: 20px 40px 0;
+      color: white;
     }
-    .titlebar h1 { font-family:'Poppins', sans-serif; font-size:28px; }
+    .titlebar h1 { font-family: 'Poppins', sans-serif; font-size: 28px; }
 
-    .container { max-width:900px; margin:20px auto; padding:0 20px; }
+    .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
 
-    section.page { display:none; margin:40px 0; }
-    section.page.active { display:block; }
+    section.page { display: none; margin: 40px 0; }
+    section.page.active { display: block; }
 
     .card {
       background: #fff;
-      border-radius:6px;
-      padding:16px;
-      margin-bottom:16px;
-      border:1px solid #ddd;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
       transition: transform 0.15s;
     }
     .card:hover { transform: translateY(-2px); border-color: var(--primary); }
 
-    .card h2 { margin-bottom:10px; font-size:20px; color:var(--primary); }
-    .card ul { list-style:none; padding-left:0; }
-    .card ul li { margin-bottom:8px; font-size:16px; }
-    .pdf-link { margin-left:6px; color: var(--primary); font-weight:600; text-decoration:underline; transition: color 0.2s; }
+    .card h2 { margin-bottom: 10px; font-size: 20px; color: var(--primary); }
+    .card ul { list-style: none; padding-left: 0; }
+    .card ul li { margin-bottom: 8px; font-size: 16px; }
+    .pdf-link { margin-left: 6px; color: var(--primary); font-weight: 600; text-decoration: underline; transition: color 0.2s; }
 
     .thumbs {
-      display:flex;
-      gap:12px;
-      margin-top:20px;
-      flex-wrap:wrap;
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .thumb {
-      background:#fff;
-      border:2px solid #ddd;
-      padding:10px 12px;
-      border-radius:6px;
-      cursor:pointer;
-      flex:1 1 150px;
-      text-align:center;
-      font-size:14px;
+      background: #fff;
+      border: 2px solid #ddd;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      flex: 1 1 150px;
+      text-align: center;
+      font-size: 14px;
       transition: all 0.25s ease, border-color 0.25s ease;
     }
     .thumb:hover {
       background: var(--primary);
-      color:white;
+      color: white;
       transform: translateY(-2px);
       border-color: var(--accent);
     }
     .thumb:hover .pdf-link { color: var(--pdf-hover); }
 
-    @media(max-width:768px){
-      .topnav { overflow-x:auto; }
-      .thumbs { flex-direction:column; }
-    }
-
-    /* Animaciones */
+    /* === 🧱 Animaciones === */
     @keyframes fadeDown {
-      0% {opacity:0; transform: translateY(-20px);}
-      100% {opacity:1; transform: translateY(0);}
+      0% {opacity: 0; transform: translateY(-20px);}
+      100% {opacity: 1; transform: translateY(0);}
     }
 
-    /* Inicio minimalista */
+    /* === 🏠 Inicio === */
     .inicio-hero {
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      text-align:center; padding:60px 20px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 60px 20px;
       background: linear-gradient(135deg,#052d2e,#169ba0);
-      color:white; border-radius:12px; margin:20px 40px;
+      color: white; border-radius: 12px; margin: 20px 40px;
+      overflow: hidden;
     }
 
-    /* Matemáticas minimalista */
+    /* === 📚 Matemáticas === */
     .math-hero {
-      display:flex; flex-direction:column; align-items:center;
-      text-align:center; padding:60px 20px;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 60px 20px;
       background: var(--math-bg);
-      border-radius:12px; margin:20px 40px;
+      border-radius: 12px; margin: 20px 40px;
       color: var(--secondary);
     }
     .math-hero h1 {
-      font-family:'Poppins',sans-serif; font-size:32px; margin-bottom:12px;
+      font-family: 'Poppins',sans-serif; font-size: 32px; margin-bottom: 12px;
       animation: fadeDown 1s forwards;
     }
     .math-hero p {
-      font-size:18px; max-width:500px; margin-bottom:24px;
+      font-size: 18px; max-width: 500px; margin-bottom: 24px;
       animation: fadeDown 1s forwards;
-      animation-delay:0.2s;
-    }
-    .math-hero .math-thumbs {
-      display:flex; gap:20px; flex-wrap:wrap; justify-content:center;
-    }
-    .math-hero .math-thumb {
-      background:white; border-radius:8px; padding:12px;
-      width:120px; height:120px; display:flex; align-items:center; justify-content:center;
-      font-size:14px; font-weight:500;
-      color: var(--secondary);
-      transition: transform 0.3s, background 0.3s;
-    }
-    .math-hero .math-thumb:hover {
-      transform: translateY(-5px);
-      background: var(--primary);
-      color:white;
+      animation-delay: 0.2s;
     }
 
+    /* === 📱 Ajustes Responsive === */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; }
+
+      .topnav { overflow-x: auto; padding: 12px 16px; gap: 16px; }
+
+      .inicio-hero,
+      .math-hero,
+      .titlebar {
+        margin: 20px 10px !important;
+      }
+
+      .container { padding: 0 10px; }
+
+      img, video, iframe { max-width: 100%; height: auto; }
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="banner">
@@ -194,259 +196,53 @@
     </nav>
   </header>
 
-<!-- INICIO minimalista con degradado y animaciones -->
-<section id="inicio" class="page active">
-  <div class="inicio-hero">
-    <h1>Bienvenido a Horizonte Studio,</h1>
-    <p>PLATAFORMA PARA DOCENTES Y ALUMNOS DE 2º DE BACHILLERATO DE CIENCIAS Y TECNOLOGÍA</p>
-    <div class="inicio-thumbs">
-      <div class="inicio-thumb" data-target="bachiller">Estudio de funciones</div>
-      <div class="inicio-thumb" data-target="matematicas">Examen límites resuelto</div>
-      <div class="inicio-thumb" data-target="eso">Polinomios 3 ESO</div>
-      <div class="inicio-thumb" data-target="libros">Libros destacados</div>
+  <!-- INICIO -->
+  <section id="inicio" class="page active">
+    <div class="inicio-hero">
+      <h1>Bienvenido a Horizonte Studio,</h1>
+      <p>PLATAFORMA PARA DOCENTES Y ALUMNOS DE 2º DE BACHILLERATO DE CIENCIAS Y TECNOLOGÍA</p>
+      <div class="inicio-thumbs">
+        <div class="inicio-thumb" data-target="bachiller">Estudio de funciones</div>
+        <div class="inicio-thumb" data-target="matematicas">Examen límites resuelto</div>
+        <div class="inicio-thumb" data-target="eso">Polinomios 3 ESO</div>
+        <div class="inicio-thumb" data-target="libros">Libros destacados</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-  .inicio-hero {
-    background: linear-gradient(135deg, #052d2e, #169ba0); /* degradado elegante */
-    padding: 60px 20px;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 20px 40px;
-    overflow: hidden;
-  }
-
-  .inicio-hero h1 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeSlide 1s forwards;
-  }
-
-  .inicio-hero p {
-    font-size: 18px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeSlide 1s forwards;
-    animation-delay: 0.3s;
-  }
-
-  .inicio-thumbs {
-    display: flex;
-    gap: 12px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .inicio-thumb {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(6px);
-    border-radius: 8px;
-    padding: 12px 20px;
-    cursor: pointer;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s;
-  }
-
-  .inicio-thumb:hover {
-    transform: translateY(-4px);
-    background: rgba(255,255,255,0.25);
-  }
-
-  /* Animación secuencial */
-  .inicio-thumb:nth-child(1) { animation: thumbFade 0.6s forwards 0.6s; }
-  .inicio-thumb:nth-child(2) { animation: thumbFade 0.6s forwards 0.8s; }
-  .inicio-thumb:nth-child(3) { animation: thumbFade 0.6s forwards 1s; }
-  .inicio-thumb:nth-child(4) { animation: thumbFade 0.6s forwards 1.2s; }
-
-  @keyframes fadeSlide {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes thumbFade {
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
-<script>
-  // Animaciones de sección INICIO
-  const inicioSection = document.getElementById('inicio');
-
-  function animateInicioSection() {
-    if(!inicioSection.classList.contains('active')) {
-      const h1 = inicioSection.querySelector('h1');
-      const p = inicioSection.querySelector('p');
-      const thumbs = inicioSection.querySelectorAll('.inicio-thumb');
-
-      h1.style.opacity = '0';
-      h1.style.transform = 'translateY(30px)';
-      p.style.opacity = '0';
-      p.style.transform = 'translateY(20px)';
-      thumbs.forEach(thumb => { thumb.style.opacity = '0'; thumb.style.transform = 'translateY(20px)'; });
-
-      setTimeout(() => {
-        h1.style.animation = 'fadeSlide 1s forwards';
-        p.style.animation = 'fadeSlide 1s forwards 0.3s';
-        thumbs.forEach((thumb, index) => {
-          thumb.style.animation = `thumbFade 0.6s forwards ${0.6 + index*0.2}s`;
-        });
-      }, 50);
-    }
-  }
-
-  // Llamar al cambiar de sección
-  links.forEach(l => l.addEventListener('click', () => {
-    setTimeout(animateInicioSection, 50);
-  }));
-
-  // Inicial al cargar si está activa
-  window.addEventListener('load', () => {
-    if(inicioSection.classList.contains('active')) animateInicioSection();
-  });
-</script>
-
-<!-- MATEMÁTICAS minimalista diferente -->
-<section id="matematicas" class="page">
-  <div class="math-hero" style="
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px 20px;
-    background: linear-gradient(135deg, #ffba00, #ff7f00);
-    color:white;
-    border-radius:12px;
-    margin:20px;
-  ">
-    <h1 style="font-family:'Poppins', sans-serif; font-weight:700; font-size:38px; margin-bottom:12px;">Sección de Matemáticas</h1>
-    <p style="font-family:'Open Sans', sans-serif; font-weight:400; font-size:18px; margin-bottom:24px;">Explora conceptos, curiosidades y ejercicios interesantes.</p>
-    <div class="math-thumbs" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; max-width:900px;">
-      <div class="math-thumb" style="
-        background:white; color:#052d2e;
-        padding:16px 20px; border-radius:10px;
-        font-family:'Poppins', sans-serif;
-        font-weight:600; cursor:pointer;
-        transition: all 0.3s ease;
-      ">Concepto 1</div>
-      <div class="math-thumb" style="
-        background:white; color:#052d2e;
-        padding:16px 20px; border-radius:10px;
-        font-family:'Poppins', sans-serif;
-        font-weight:600; cursor:pointer;
-        transition: all 0.3s ease;
-      ">Concepto 2</div>
-      <div class="math-thumb" style="
-        background:white; color:#052d2e;
-        padding:16px 20px; border-radius:10px;
-        font-family:'Poppins', sans-serif;
-        font-weight:600; cursor:pointer;
-        transition: all 0.3s ease;
-      ">Concepto 3</div>
-      <div class="math-thumb" style="
-        background:white; color:#052d2e;
-        padding:16px 20px; border-radius:10px;
-        font-family:'Poppins', sans-serif;
-        font-weight:600; cursor:pointer;
-        transition: all 0.3s ease;
-      ">Concepto 4</div>
+  <!-- MATEMÁTICAS -->
+  <section id="matematicas" class="page">
+    <div class="math-hero" style="background: linear-gradient(135deg, #ffba00, #ff7f00); color: white;">
+      <h1>Sección de Matemáticas</h1>
+      <p>Explora conceptos, curiosidades y ejercicios interesantes.</p>
+      <div class="math-thumbs" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; max-width:900px;">
+        <div class="math-thumb">Concepto 1</div>
+        <div class="math-thumb">Concepto 2</div>
+        <div class="math-thumb">Concepto 3</div>
+        <div class="math-thumb">Concepto 4</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Hover animación -->
-<style>
-  .math-thumb:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    background: #ff7f00;
-    color: white;
-  }
-</style>
-
-
-  <!-- PROBLEMAS, PAU, LIBROS (sin modificar) -->
+  <!-- EJERCICIOS -->
   <section id="problemas" class="page">
     <div class="titlebar"><h1>EJERCICIOS DE REPASO</h1></div>
     <main class="container">
-      <div class="card">
-        <h2>BLOQUE I: ANÁLISIS</h2>
-        <ul>
-          <li>Ejercicios de dominios y recorridos de funciones <a href="pdf/funciones_graficas.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Ejercicios de límites <a href="pdf/funciones_graficas.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Ejercicios de continuidad con 2 parámetros <a href="pdf/funciones_graficas.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Ejercicios de continuidad con parámetros <a href="pdf/funciones_graficas.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Ejercicios de continuidad con parámetros <a href="pdf/funciones_graficas.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Ejercicios de continuidad con parámetros <a href="pdf/funciones_graficas.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>BLOQUE II: ÁLGEBRA</h2>
-        <ul>
-          <li>Problema 1: Cálculo de límites <a href="pdf/limites_continuidad.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Problema 2: Límites laterales <a href="pdf/limites_continuidad.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Problema 3: Aplicación en funciones compuestas <a href="pdf/limites_continuidad.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>BLOQUE III: GEOMETRÍA</h2>
-        <ul>
-          <li>Problema 1: Cálculo de límites <a href="pdf/limites_continuidad.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Problema 2: Límites laterales <a href="pdf/limites_continuidad.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Problema 3: Aplicación en funciones compuestas <a href="pdf/limites_continuidad.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>BLOQUE IV: PROBABILIDAD</h2>
-        <ul>
-          <li>Problema 1: Derivada de funciones polinómicas <a href="pdf/derivadas_aplicaciones.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Problema 2: Derivada de funciones trigonométricas <a href="pdf/derivadas_aplicaciones.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Problema 3: Problemas de velocidad y crecimiento <a href="pdf/derivadas_aplicaciones.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
+      <div class="card"><h2>BLOQUE I: ANÁLISIS</h2>
+        <ul><li>Ejercicios de límites <a href="pdf/funciones_graficas.pdf" class="pdf-link" target="_blank">Abrir PDF</a></li></ul>
       </div>
     </main>
   </section>
 
+  <!-- PAU -->
   <section id="pau" class="page">
     <div class="titlebar"><h1>PAU / EBAU</h1></div>
     <main class="container">
-      <div class="card">
-        <h2>EXÁMENES DE MATEMÁTICAS II</h2>
-        <ul>
-          <li>Examen PAU Junio 2024 <a href="pdf/pau_junio2024.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Examen PAU Julio 2024 <a href="pdf/pau_julio2024.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Examen PAU Septiembre 2024 <a href="pdf/pau_septiembre2024.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>EXÁMENES DE MATEMÁTICAS APLICADAS</h2>
-        <ul>
-          <li>Examen PAU Junio 2024 <a href="pdf/pau_sociales_junio2024.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Examen PAU Julio 2024 <a href="pdf/pau_sociales_julio2024.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Examen PAU Septiembre 2024 <a href="pdf/pau_sociales_septiembre2024.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>RECURSOS Y GUÍAS</h2>
-        <ul>
-          <li>Consejos para preparar el examen <a href="pdf/guia_preparacion_pau.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-          <li>Formulario de fórmulas oficiales <a href="pdf/formulario_pau.pdf" target="_blank" class="pdf-link">Abrir PDF</a></li>
-        </ul>
-      </div>
+      <div class="card"><h2>EXÁMENES DE MATEMÁTICAS II</h2></div>
     </main>
   </section>
 
+  <!-- LIBROS -->
   <section id="libros" class="page">
     <div class="titlebar"><h1>LIBROS</h1></div>
     <main class="container">
@@ -456,28 +252,14 @@
           <strong>Matemáticas para ser leyenda</strong><br>
           <a href="pdf/matematicas_basicas.pdf" target="_blank" class="pdf-link">Descargar PDF</a>
         </div>
-        <div class="thumb">
-          <img src="img/TECNOPor.png" alt="Libro 2" style="width:100%; border-radius:6px; margin-bottom:8px;">
-          <strong>Tecnología e Ingeniería II</strong><br>
-          <a href="pdf/prueba.pdf" target="_blank" class="pdf-link">Descargar PDF</a>
-        </div>
-        <div class="thumb">
-          <img src="img/fisicaport.png" alt="Libro 3" style="width:100%; border-radius:6px; margin-bottom:8px;">
-          <strong>Física</strong><br>
-          <a href="pdf/calculo_derivadas.pdf" target="_blank" class="pdf-link">Descargar PDF</a>
-        </div>
-        <div class="thumb">
-          <img src="img/libro4.png" alt="Libro 4" style="width:100%; border-radius:6px; margin-bottom:8px;">
-          <strong>Estadística Aplicada</strong><br>
-          <a href="pdf/estadistica_aplicada.pdf" target="_blank" class="pdf-link">Descargar PDF</a>
-        </div>
       </div>
     </main>
   </section>
 
+  <!-- Navegación entre secciones -->
   <script>
-    const links=document.querySelectorAll('.topnav a, [data-target]');
-    const pages=document.querySelectorAll('.page');
+    const links = document.querySelectorAll('.topnav a, [data-target]');
+    const pages = document.querySelectorAll('.page');
 
     links.forEach(l => l.addEventListener('click', e => {
       e.preventDefault();
@@ -492,22 +274,21 @@
     }));
   </script>
 
-  <!-- BANNER FIJO PIE DE PÁGINA -->
+  <!-- Footer -->
   <div id="footerBanner" style="
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      background:#052d2e;
-      color:white;
-      text-align:center;
-      padding:12px;
-      font-family:'Poppins',sans-serif;
-      font-weight:600;
-      z-index:9999;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#052d2e;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    z-index:9999;
   ">
-      All Rights Reserved © 2025
+    All Rights Reserved © 2025
   </div>
-
 </body>
 </html>
